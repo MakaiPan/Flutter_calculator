@@ -1,16 +1,41 @@
-# calculator
+# Introduction
 
-Simple calculator app developed with Flutter
+A simple calculator app developed with Flutter
 
-## Getting Started
+## Features
+1. Separate the business logic of the calculator from the UI View.
+2. The state management used by the project is Provider.
 
-This project is a starting point for a Flutter application.
+**It's an easy way to practice and understand the following:**
+1. How to separate the business logic from the UI view. 
+   In order to make the code more readable and clearer.
+2. How to use Provider.
+   Provider is a state management to help the code easier to use and more usable.
 
-A few resources to get you started if this is your first Flutter project:
+## Packages
 
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
+| **Package**                                   | **Explain**      |
+|-----------------------------------------------|------------------|
+| [Provider](https://pub.dev/packages/provider) | State management |
 
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+
+
+## Directory Structure
+
+The project directory structure is as follows:
+```
+|--lib
+    |--models
+    |--pages
+        |--home
+            |--components
+```
+
+
+| **Directory** | **Explain**           |
+|---------------|-----------------------|
+| models        | Model layer directory |
+| pages         | View layer directory  |
+
+
+
