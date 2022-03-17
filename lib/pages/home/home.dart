@@ -13,7 +13,7 @@ class HomePage extends StatelessWidget {
       create: (_) => Calculator(),
       child: Scaffold(
         appBar: AppBar(),
-        body: const Body(),
+        body: Body(),
       ),
     );
   }

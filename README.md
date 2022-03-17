@@ -7,7 +7,7 @@ A simple calculator app developed with Flutter
 2. The state management used by the project is Provider.
 
 **It's an easy way to practice and understand the following:**
-1. How to separate the business logic from the UI view. 
+1. How to separate the business logic from the UI view.
    In order to make the code more readable and clearer.
 2. How to use Provider.
    Provider is a state management to help the code easier to use and more usable.

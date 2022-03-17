@@ -2,99 +2,102 @@ import 'package:calculator/extension.dart';
 import 'package:flutter/material.dart';
 
 class Calculator extends ChangeNotifier {
-  String number = '';
-  String tempNum = '';
-  double? tempNum1;
-  double? tempNum2;
+  String _number = '';
+  String _tempNum = '';
   Operator operator = Operator.none;
 
+  void delete() {
+    if (_number.isNotEmpty) {
+      _number = _number.substring(0, _number.length - 1);
+    }
+    notifyListeners();
+  }
+
   String displayNumber() {
-    if (tempNum.isNotEmpty && number.isEmpty) return tempNum;
-    return number.isEmpty ? '0' : number;
+    if (_tempNum.isNotEmpty && _number.isEmpty) return _tempNum;
+    return _number.isEmpty ? '0' : _number;
   }
 
   void pressedNumeric(int n) {
-    if (number == '0') {
-      number = number.substring(1);
+    if (_number == '0') {
+      _number = _number.substring(1);
     }
-    number += n.toString();
+    _number += n.toString();
     notifyListeners();
   }
 
   void clear() {
-    number = '';
-    tempNum = '';
+    _number = '';
+    _tempNum = '';
     operator = Operator.none;
-    tempNum1 = null;
-    tempNum2 = null;
     notifyListeners();
   }
 
   void signed() {
-    if (number.isNotEmpty && number != '0') {
-      number = number[0] == '-' ? number.substring(1) : '-' + number;
+    if (_number.isNotEmpty && _number != '0') {
+      _number = _number[0] == '-' ? _number.substring(1) : '-' + _number;
       notifyListeners();
     }
   }
 
   void percentage() {
-    double tempNum = double.parse(number);
+    double tempNum = double.parse(_number);
     tempNum /= 100;
-    number = tempNum.toString();
+    _number = tempNum.toString();
     notifyListeners();
   }
 
   void pressedDot() {
-    if (number.isEmpty) {
-      number = '0.';
+    if (_number.isEmpty) {
+      _number = '0.';
     }
-    if (!number.contains(r'.')) {
-      number += '.';
+    if (!_number.contains(r'.')) {
+      _number += '.';
     }
     notifyListeners();
   }
 
   void add() {
-    if (tempNum.isEmpty) {
-      tempNum = number;
-    } else if (number.isNotEmpty) {
-      tempNum = (double.parse(tempNum) + double.parse(number)).toDisplay();
+    if (_tempNum.isEmpty) {
+      _tempNum = _number;
+    } else if (_number.isNotEmpty) {
+      _tempNum = (double.parse(_tempNum) + double.parse(_number)).toDisplay();
     }
-    number = '';
+    _number = '';
     operator = Operator.addition;
     notifyListeners();
   }
 
   void subtraction() {
-    if (tempNum.isEmpty) {
-      tempNum = number;
-    } else if (number.isNotEmpty) {
-      tempNum = (double.parse(tempNum) - double.parse(number)).toDisplay();
+    if (_tempNum.isEmpty) {
+      _tempNum = _number;
+    } else if (_number.isNotEmpty) {
+      _tempNum = (double.parse(_tempNum) - double.parse(_number)).toDisplay();
     }
-    number = '';
+    _number = '';
     operator = Operator.subtraction;
     notifyListeners();
   }
 
   void multiplication() {
-    if (tempNum.isEmpty) {
-      tempNum = number;
-    } else if (number.isNotEmpty) {
-      tempNum = (double.parse(tempNum) * double.parse(number)).toDisplay();
+    if (_tempNum.isEmpty) {
+      _tempNum = _number;
+    } else if (_number.isNotEmpty) {
+      _tempNum = (double.parse(_tempNum) * double.parse(_number)).toDisplay();
     }
-    number = '';
+    _number = '';
     operator = Operator.multiplication;
     notifyListeners();
   }
 
   void division() {
-    if (number == '0') throw 'Divide by zero!';
-    if (tempNum.isEmpty) {
-      tempNum = number;
-    } else if (number.isNotEmpty) {
-      tempNum = (double.parse(tempNum) / double.parse(number)).toDisplay();
+    if (_number == '0') throw 'Divide by zero!';
+    if (_tempNum.isEmpty) {
+      _tempNum = _number;
+    } else if (_number.isNotEmpty) {
+      _tempNum = (double.parse(_tempNum) / double.parse(_number)).toDisplay();
     }
-    number = '';
+    _number = '';
     operator = Operator.division;
     notifyListeners();
   }
