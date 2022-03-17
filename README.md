@@ -2,6 +2,8 @@
 
 A simple calculator app developed with Flutter
 
+![Demo](https://github.com/MakaiPan/Flutter_calculator/blob/main/README/simple_demo.gif?raw=true=100x)
+
 ## Features
 1. Separate the business logic of the calculator from the UI View.
 2. The state management used by the project is Provider.
