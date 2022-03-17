@@ -1,5 +1,6 @@
-import 'package:calculator/models/calcultor.dart';
+import 'package:calculator/models/calculator.dart';
 import 'package:flutter/material.dart';
+import 'package:provider/provider.dart';
 
 import '../components/numeric_keypad.dart';
 
@@ -13,7 +14,7 @@ class Body extends StatelessWidget {
       children: [
         const Spacer(),
         Text(
-          Calculator.displayNumber(),
+          context.watch<Calculator>().displayNumber(),
           style: const TextStyle(fontSize: 60.0),
         ),
         const SizedBox(height: 20.0),
